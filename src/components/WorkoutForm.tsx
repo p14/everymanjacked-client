@@ -3,14 +3,14 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { WorkoutCategory, WorkoutData, initialWorkoutData } from '../constants/workout.constants';
 
-interface WorkoutFromProps {
+interface IWorkoutForm {
   generateWorkout: ({ category, length }: {
     category: string;
     length: number;
   }) => Promise<void>
 }
 
-const WorkoutForm = ({ generateWorkout }: WorkoutFromProps) => {
+const WorkoutForm = ({ generateWorkout }: IWorkoutForm) => {
 
   const validationSchema = Yup.object().shape({
     category: Yup.string().oneOf(Object.values(WorkoutCategory)).required(),

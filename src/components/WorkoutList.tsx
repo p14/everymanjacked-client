@@ -1,4 +1,3 @@
-import React from 'react';
 import { Box, Button, Divider, Grid, List, ListItem, ListItemText } from '@mui/material';
 import { Exercise } from '../constants/exercise.constants';
 
@@ -8,7 +7,6 @@ interface IWorkoutList {
 }
 
 const WorkoutList = ({ workout, backToForm }: IWorkoutList) => {
-  console.log(workout);
   return (
     <Box>
       <Grid container spacing={2}>
