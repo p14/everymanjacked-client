@@ -17,3 +17,8 @@ export const generateWorkout = (data: { category: string, length: number }): Pro
   const config = setupConfig('POST', '/workouts/generate', data);
   return axios.request(config);
 };
+
+export const getAllExercises = (): Promise<AxiosResponse> => {
+  const config = setupConfig('GET', '/exercises', null);
+  return axios.request(config);
+};
