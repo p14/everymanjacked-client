@@ -1,11 +1,12 @@
 import React from 'react';
-import { Container } from '@mui/material';
+import { Box, Container, Typography } from '@mui/material';
 import { generateWorkout } from './api/app.api';
 import Heading from './components/Heading';
 import WorkoutForm from './components/WorkoutForm';
 import WorkoutList from './components/WorkoutList';
 import { Exercise } from './constants/exercise.constants';
 import { AppStatus } from './constants/app.constants';
+import Footer from './components/Footer';
 
 const App: React.FC = () => {
 
@@ -39,10 +40,13 @@ const App: React.FC = () => {
   };
 
   return (
-    <Container maxWidth='md'>
-      <Heading />
-      {renderContent()}
-    </Container>
+      <Container maxWidth='sm' sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+        <Heading />
+        <Box sx={{ flexGrow: 1 }}>
+          {renderContent()}
+        </Box>
+        <Footer />
+      </Container>
   );
 }
 

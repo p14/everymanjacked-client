@@ -4,10 +4,10 @@ import { Box, Typography } from '@mui/material'
 const Heading: React.FC = () => {
   return (
     <Box sx={{ my: 5, textAlign: 'center' }}>
-      <Typography component='h2' variant='h2'>
+      <Typography component='h1' variant='h1' sx={{ fontSize: '32px', fontWeight: 600 }}>
         Workout Generator
       </Typography>
-      <Typography component='h6' variant='h6'>
+      <Typography>
         by EveryManJacked
       </Typography>
     </Box>

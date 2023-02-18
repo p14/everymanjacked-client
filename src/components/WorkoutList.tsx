@@ -10,7 +10,7 @@ interface IWorkoutList {
 
 const WorkoutList = ({ workout, backToForm }: IWorkoutList) => {
   return (
-    <Box sx={{ alignItems: 'center', display: 'flex', flexDirection: 'column' }}>
+    <Box>
       <Grid container spacing={2}>
         <Grid item xs={12}>
           <List>
@@ -29,7 +29,7 @@ const WorkoutList = ({ workout, backToForm }: IWorkoutList) => {
         </Grid>
       </Grid>
 
-      <Button variant='contained' sx={{ mt: 4 }} onClick={() => backToForm()}>
+      <Button variant='contained' sx={{ my: 5 }} onClick={() => backToForm()}>
         Back to Form
       </Button>
     </Box>
