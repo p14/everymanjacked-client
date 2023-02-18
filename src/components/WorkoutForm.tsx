@@ -69,7 +69,7 @@ const WorkoutForm = ({ generateWorkout }: WorkoutFromProps) => {
           </Grid>
         </Grid>
 
-        <Button variant='contained' type='submit' sx={{ marginBottom: 2, marginTop: 2 }}>
+        <Button variant='contained' type='submit' sx={{ my: 2 }}>
           Generate
         </Button>
       </Box>
