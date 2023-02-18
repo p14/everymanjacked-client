@@ -8,6 +8,7 @@ interface IDataTable {
 }
 
 const DataTable = ({ rows, columns }: IDataTable) => {
+
   const [pageSize, setPageSize] = useState<number>(5);
   const [searchField, setSearchField] = useState<string>(columns[0].field);
   const [search, setSearch] = useState<string>('');
@@ -18,7 +19,7 @@ const DataTable = ({ rows, columns }: IDataTable) => {
       setFilteredRows(rows);
     } else {
       const filtered = rows.filter((row) => {
-        let searchValues: string[] | string = row[searchField];
+        const searchValues: string[] | string = row[searchField];
         if (Array.isArray(searchValues)) {
           return searchValues.some((option: string) => option.toLowerCase().includes(search.toLowerCase()));
         }

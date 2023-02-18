@@ -5,11 +5,9 @@ import DataTable from './DataTable';
 import { useExerciseContext } from '../context/exercise.context';
 
 const ExerciseTable: React.FC = () => {
+  
   const exerciseContext = useExerciseContext();
-
   const theme = useTheme();
-  // const navigate = useNavigate();
-
   const isSmallScreen = useMediaQuery(theme.breakpoints.between('xs', 'sm'));
 
   const columns: GridColDef[] = [
