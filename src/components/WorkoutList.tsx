@@ -28,7 +28,7 @@ const WorkoutList = ({ workout, backToForm }: IWorkoutList) => {
       </Grid>
 
       <Button variant='contained' sx={{ mb: 5, mt: 2 }} onClick={() => backToForm()}>
-        Back to Form
+        Back to Home
       </Button>
     </Box>
   );
