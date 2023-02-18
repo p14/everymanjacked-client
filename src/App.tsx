@@ -5,8 +5,10 @@ import WorkoutForm from './components/WorkoutForm';
 import WorkoutList from './components/WorkoutList';
 import { Exercise } from './constants/exercise.constants';
 import { AppStatus } from './constants/app.constants';
+import { FeedbackType, useFeedbackContext } from './context/feedback.context';
 
 const App: React.FC = () => {
+  const feedbackContext = useFeedbackContext();
 
   const [ appStatus, setAppStatus ] = React.useState<AppStatus>(AppStatus.FORM);
   const [ workout, setWorkout ] = React.useState<Exercise[]>([]);
@@ -15,7 +17,14 @@ const App: React.FC = () => {
     await generateWorkout(data).then((response) => {
       setWorkout(response.data);
       setAppStatus(AppStatus.WORKOUT);
-    }).catch((error) => console.error(error));
+    }).catch((error) => {
+      console.error(error);
+      feedbackContext.setFeedback({
+        message: 'Failed to generate workout', 
+        type: FeedbackType.ERROR,
+        open: true,
+      });
+    });
   };
 
   const handleReset = () => {

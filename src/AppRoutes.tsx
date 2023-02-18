@@ -1,17 +1,19 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Box } from '@mui/material';
-import { ExerciseProvider } from './context/exercise.context';
 import App from './App';
 import ExerciseTable from './components/ExerciseTable';
-import Heading from './components/Heading';
+import FeedbackAlert from './components/FeedbackAlert';
 import Footer from './components/Footer';
+import Heading from './components/Heading';
+import { ExerciseProvider } from './context/exercise.context';
+import { FeedbackProvider } from './context/feedback.context';
 
 const AppRoutes: React.FC = () => {
   return (
     <Router>
       <ExerciseProvider>
-        {/* <FeedbackProvider> */}
+        <FeedbackProvider>
           <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
             <Heading />
             <Routes>
@@ -20,8 +22,8 @@ const AppRoutes: React.FC = () => {
             </Routes>
             <Footer />
           </Box>
-          {/* <FeedbackAlert /> */}
-        {/* </FeedbackProvider> */}
+          <FeedbackAlert />
+        </FeedbackProvider>
       </ExerciseProvider>
     </Router>
   );

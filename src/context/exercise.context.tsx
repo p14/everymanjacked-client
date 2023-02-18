@@ -15,9 +15,11 @@ export function ExerciseProvider({ children }: { children: any }) {
   };
 
   useEffect(() => {
-    getAllExercises()
-      .then((response) => setExercises(response.data))
-      .catch((error) => console.error(error.response.data));
+    getAllExercises().then((response) => {
+      setExercises(response.data);
+    }).catch((error) => {
+      console.error(error.response.data);
+    });
   }, []);
 
   return (
