@@ -1,7 +1,6 @@
 import React from 'react';
 import { Box, Button, Divider, Grid, List, ListItem, ListItemText } from '@mui/material';
 import { Exercise } from '../constants/exercise.constants';
-import { parseExerciseCategories } from '../utils/helpers';
 
 interface IWorkoutList {
   workout: Exercise[]
@@ -9,6 +8,7 @@ interface IWorkoutList {
 }
 
 const WorkoutList = ({ workout, backToForm }: IWorkoutList) => {
+  console.log(workout);
   return (
     <Box>
       <Grid container spacing={2}>
@@ -19,7 +19,7 @@ const WorkoutList = ({ workout, backToForm }: IWorkoutList) => {
                 <ListItem>
                   <ListItemText
                     primary={exercise.title}
-                    secondary={parseExerciseCategories(exercise.categories)}
+                    secondary={exercise.categories}
                   />
                 </ListItem>
                 <Divider />
