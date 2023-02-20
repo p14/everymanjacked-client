@@ -22,3 +22,8 @@ export const getAllExercises = (): Promise<AxiosResponse> => {
   const config = setupConfig('GET', '/exercises', null);
   return axios.request(config);
 };
+
+export const getStatusCheck = (): Promise<AxiosResponse> => {
+  const config = setupConfig('GET', '/api/status-check', null);
+  return axios.request(config);
+};
