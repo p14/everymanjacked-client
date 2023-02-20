@@ -24,12 +24,14 @@ const AppRoutes: React.FC = () => {
     }, 1000);
 
     getStatusCheck().then((response) => {
-      console.log('Status Check Message:', response);
+      console.log('Status Check Message:', response.data);
       setServerCheck(true);
       setServerRunning(true);
     }).catch((error) => {
       console.error(error);
     });
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
