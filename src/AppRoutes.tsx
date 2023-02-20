@@ -13,11 +13,19 @@ import ServerModal from './components/ServerModal';
 
 const AppRoutes: React.FC = () => {
 
-  const [serverRunning, setServerRunning] = React.useState<boolean>(false);
+  const [serverCheck, setServerCheck] = React.useState<boolean>(false);
+  const [serverRunning, setServerRunning] = React.useState<boolean>(true);
 
   React.useEffect(() => {
+    setTimeout(() => {
+      if (!serverCheck) {
+        setServerRunning(false);
+      }
+    }, 1000);
+
     getStatusCheck().then((response) => {
       console.log('Status Check Message:', response);
+      setServerCheck(true);
       setServerRunning(true);
     }).catch((error) => {
       console.error(error);
@@ -26,7 +34,7 @@ const AppRoutes: React.FC = () => {
 
   return (
     <>
-      {!serverRunning && <ServerModal />}
+      {(!serverRunning && !serverCheck) && <ServerModal />}
       <Router>
         <ExerciseProvider>
           <FeedbackProvider>
