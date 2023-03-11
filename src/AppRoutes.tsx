@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { Box } from '@mui/material';
+import { Box, ThemeProvider } from '@mui/material';
 import App from './App';
 import ExerciseTable from './components/ExerciseTable';
 import FeedbackAlert from './components/FeedbackAlert';
@@ -10,6 +10,7 @@ import { ExerciseProvider } from './context/exercise.context';
 import { FeedbackProvider } from './context/feedback.context';
 import { getStatusCheck } from './api/app.api';
 import ServerModal from './components/ServerModal';
+import { customTheme } from './styles/global.styles';
 
 const AppRoutes: React.FC = () => {
 
@@ -38,19 +39,21 @@ const AppRoutes: React.FC = () => {
     <>
       {(!serverRunning && !serverCheck) && <ServerModal />}
       <Router>
-        <ExerciseProvider>
-          <FeedbackProvider>
-            <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-              <Heading />
-              <Routes>
-                <Route path='/' element={<App />} />
-                <Route path='/exercises' element={<ExerciseTable />} />
-              </Routes>
-              <Footer />
-            </Box>
-            <FeedbackAlert />
-          </FeedbackProvider>
-        </ExerciseProvider>
+        <ThemeProvider theme={customTheme}>
+          <ExerciseProvider>
+            <FeedbackProvider>
+              <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+                <Heading />
+                <Routes>
+                  <Route path='/' element={<App />} />
+                  <Route path='/exercises' element={<ExerciseTable />} />
+                </Routes>
+                <Footer />
+              </Box>
+              <FeedbackAlert />
+            </FeedbackProvider>
+          </ExerciseProvider>
+        </ThemeProvider>
       </Router>
     </>
   );

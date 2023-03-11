@@ -5,7 +5,6 @@ import DataTable from './DataTable';
 import { useExerciseContext } from '../context/exercise.context';
 
 const ExerciseTable: React.FC = () => {
-  
   const exerciseContext = useExerciseContext();
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.between('xs', 'sm'));

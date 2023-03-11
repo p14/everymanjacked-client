@@ -8,11 +8,11 @@ const Footer: React.FC = () => {
   const renderLink = () => {
     if (location.pathname.includes('exercises')) {
       return (
-        <Link to='/'>Home</Link>
+        <Link to='/' className='link'>Home</Link>
       );
     }
     return (
-      <Link to='/exercises'>All Exercises</Link>
+      <Link to='/exercises' className='link'>All Exercises</Link>
     );
   };
 

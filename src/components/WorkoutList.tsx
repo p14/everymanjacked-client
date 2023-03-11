@@ -1,4 +1,4 @@
-import { Box, Button, Divider, Grid, List, ListItem, ListItemText } from '@mui/material';
+import { Box, Button, Card, Container, Divider, Grid, List, ListItem, ListItemText } from '@mui/material';
 import { Exercise } from '../constants/exercise.constants';
 
 interface IWorkoutList {
@@ -8,29 +8,31 @@ interface IWorkoutList {
 
 const WorkoutList = ({ workout, backToForm }: IWorkoutList) => {
   return (
-    <Box>
-      <Grid container spacing={2}>
-        <Grid item xs={12}>
-          <List>
-            {workout.map((exercise) => (
-              <Box key={exercise._id}>
-                <ListItem>
-                  <ListItemText
-                    primary={exercise.title}
-                    secondary={exercise.categories}
-                  />
-                </ListItem>
-                <Divider />
-              </Box>
-            ))}
-          </List>
+    <Card sx={{ alignItems: 'center', display: 'flex', flexDirection: 'column', mt: 8, px: 2, py: 4 }}>
+      <Container component='main' maxWidth='sm'>
+        <Grid container spacing={2}>
+          <Grid item xs={12}>
+            <List>
+              {workout.map((exercise) => (
+                <Box key={exercise._id}>
+                  <ListItem>
+                    <ListItemText
+                      primary={exercise.title}
+                      secondary={exercise.categories}
+                    />
+                  </ListItem>
+                  <Divider />
+                </Box>
+              ))}
+            </List>
+          </Grid>
         </Grid>
-      </Grid>
 
-      <Button variant='contained' sx={{ mb: 5, mt: 2 }} onClick={() => backToForm()}>
-        Back to Home
-      </Button>
-    </Box>
+        <Button fullWidth variant='contained' sx={{ mb: 5, mt: 2 }} onClick={() => backToForm()}>
+          Back to Home
+        </Button>
+      </Container>
+    </Card>
   );
 };
 
