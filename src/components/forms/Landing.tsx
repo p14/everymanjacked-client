@@ -14,8 +14,8 @@ const Landing = ({ component }: LandingProps) => {
 
     const backgroundImageProps = {
         width: {
-            xs: '50%',
-            sm: '65%',
+            xs: '0%',
+            sm: '35%',
             md: '50%',
         },
         sx: {
@@ -28,8 +28,8 @@ const Landing = ({ component }: LandingProps) => {
 
     const formProps = {
         width: {
-            xs: '0%',
-            sm: '35%',
+            xs: '100%',
+            sm: '65%',
             md: '50%',
         },
     };
